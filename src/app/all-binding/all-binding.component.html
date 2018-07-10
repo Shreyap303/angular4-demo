@@ -1,0 +1,57 @@
+<br>
+<img src="{{ imgUrl }}" />
+<img [src]="imgUrl" /> 
+<br>
+<br>
+<table border=1>
+  <tr>
+    <td [attr.colspan]="colSpan">1</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+</table>
+<br>
+<button class="btn" 
+  [class.btn-primary]="isActive" 
+  [class.btn-success]="!isActive" 
+  (click)="btnClick()">Class Binding</button>
+<br>
+<br>
+<button class="btn" (click)="btnClick()"
+  [ngClass]="{
+    'btn-primary': isActive,
+    'btn-success':!isActive
+  }">Ng Class Binding</button>
+<br>
+<br>
+<button class="btn" 
+  [style.backgroundColor]="isActive ? 'blue':'green'" 
+  [style.color]="isActive ? 'white':'black'" >Style Binding</button>
+<br>
+<br>
+<button class="btn" (click)="btnClick()"
+  [ngStyle]="{ 
+    'backgroundColor': isActive ? 'blue':'green',
+    'color': isActive ? 'white':'black'
+  }">Ng Style Binding</button>
+<br>
+<br>
+<div (click)="divClick()">
+  <button class="btn" (click)="eventClick($event)">Event Binding and Bubbling</button>
+</div>
+<br>
+Key Up Event Filtering: <input (keyup.enter)="onKeyUp()"/>
+<br>
+<br>
+Template Variable: <input #email (keyup.enter)="sendVariable(email.value)"/>
+<br>
+<br>
+tWO WAY Variable: <input [(ngModel)]="modelEmail" (keyup.enter)="sendTwoWay()"/>
+<br>
+<br>
+<br>
+
+
+

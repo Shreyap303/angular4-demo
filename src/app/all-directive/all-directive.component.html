@@ -1,0 +1,54 @@
+<div *ngIf="list.length > 0"> 
+  <ul>
+    <li *ngFor="let data of list ; index as i">
+      {{ i }} - {{ data}}
+      <button class="btn btn-sm btn-success" (click)="onRemove(data)">Remove</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="list.length == 0"> No List Available</div>
+<br>
+
+<button class="btn btn-info" (click)="onAdd()">Add</button>
+<br>
+<br>
+
+<div *ngIf="list.length > 0; then yeslist else nolist"></div>
+<ng-template #yeslist>
+    <ul>
+        <li *ngFor="let data of list ; even as isEven ">
+          {{ data}} <span *ngIf="isEven">(EVEN)</span>
+          <button class="btn btn-sm btn-success" (click)="onChange(data)">Change</button>
+        </li>
+    </ul>
+</ng-template>
+<ng-template #nolist>No List Available</ng-template>
+<br>
+<br>
+
+<button class="btn btn-info" (click)="loadList()"> Load List</button>
+<br>
+<div [hidden]="!checkListAvail()"> 
+    <ul>
+        <li *ngFor="let data1 of list1">
+          {{ data1 }}
+        </li>
+    </ul>
+</div>
+<div [hidden]="checkListAvail()"> No List Available</div>
+<br>
+
+
+<ul class="nav nav-pills">
+  <li class="nav-item"><a class="nav-link" [class.active]="viewMode == 'map'" (click)="viewMode = 'map'">Map View</a></li>
+  <li class="nav-item"><a class="nav-link"  [class.active]="viewMode == 'list'" (click)="viewMode = 'list'">List View</a></li>
+</ul>
+<br>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>Otherwise</div>
+</div>
+
+<br>
+<br>

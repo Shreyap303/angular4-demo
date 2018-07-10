@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="">
+            Home 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/courses">
+            Courses 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/binds">
+            Binds 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/pipes">
+            Pipes 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/directives">
+            Directives 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/templateForm">
+            TemplateForm 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/reactiveForm">
+            ReactiveForm 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin() && service.isAdmin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/followers">
+            Followers 
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin() && service.isAdmin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/posts">
+            Posts
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!service.isLogin()" routerLinkActive="active current">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="service.isLogin()">
+					<a class="nav-link" (click)="onclickLogout()">Logout</a>
+				</li>
+      </ul>
+    </div>
+</nav>

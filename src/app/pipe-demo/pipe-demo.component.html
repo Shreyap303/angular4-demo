@@ -1,0 +1,7 @@
+<br>
+{{ course.title | uppercase}}<br>
+{{ course.rating | number:'1.2-2'}}<br>
+{{ course.students | number}}<br>
+{{ course.price | currency:'INR':true:'1.2-2'}}<br>
+{{ course.releaseDate | date: 'shortDate'}}<br>
+{{ text | shorttext: 200 }}<br>
