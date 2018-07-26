@@ -1,11 +1,14 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { GithubProfileService } from './github-profile.service';
+import { HttpModule } from '@angular/http';
+import { DataService } from '../data-service';
 
 describe('GithubProfileService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GithubProfileService]
+      imports: [ HttpModule ],
+      providers: [GithubProfileService, DataService]
     });
   });
 
